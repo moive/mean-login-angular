@@ -1,5 +1,5 @@
-import { encrypted, verified } from 'utils/bcrypt.handle';
-import { generateToken } from 'utils/jwt.handle';
+import { encrypted, verified } from '../utils/bcrypt.handle';
+import { generateToken } from '../utils/jwt.handle';
 import type { IAuth, IUser } from './auth.interfaces';
 
 import User from './auth.model';
