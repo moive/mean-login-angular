@@ -1,14 +1,16 @@
-import { logger } from 'config';
+import { logger } from '../config';
 import type { Response } from 'express';
 
 const handleHttp = (
   res: Response,
   error: string,
-  statusCode: number,
+  statusCode = 500,
   errorRaw?: any
-): void => {
+): Response => {
   logger.error(errorRaw);
-  res.status(statusCode).send({ error });
+
+  const t = res.status(statusCode).send({ error });
+  return t;
 };
 
 export { handleHttp };
