@@ -24,7 +24,7 @@ const loginUserCtrl = async (
   try {
     const { email, password } = req.body;
     const isLoggedIn = await loginUser({ email, password });
-    if (isLoggedIn === 'PASSWORD INCORRECT')
+    if (isLoggedIn.message === 'PASSWORD INCORRECT')
       return res.status(403).send(isLoggedIn);
 
     return res.send(isLoggedIn);

@@ -6,3 +6,15 @@ export interface IAuth {
 export interface IUser extends IAuth {
   name: string;
 }
+export interface IDataUser {
+  name: string;
+  email: string;
+  token: string;
+  expiresIn: number;
+}
+
+export interface IResponsePromise {
+  ok: boolean;
+  message?: string;
+  user?: IDataUser;
+}

@@ -12,6 +12,6 @@ app.use(express.json());
 app.get('/', (_req, res) => {
   return res.json({ message: 'Hello world' });
 });
-app.use(authRouter);
+app.use('/api', authRouter);
 
 export default app;
