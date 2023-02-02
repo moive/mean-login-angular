@@ -9,8 +9,7 @@ const handleHttp = (
 ): Response => {
   logger.error(errorRaw);
 
-  const t = res.status(statusCode).send({ error });
-  return t;
+  return res.status(statusCode).send({ ok: false, message: error });
 };
 
 export { handleHttp };
