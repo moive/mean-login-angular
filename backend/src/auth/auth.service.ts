@@ -1,4 +1,4 @@
-import { FnDataUser } from '../utils/common.handle';
+import { FnDataUserSuccess } from '../utils/common.handle';
 import { encrypted, verified } from '../utils/bcrypt.handle';
 import { generateToken } from '../utils/jwt.handle';
 import type { IAuth, IResponsePromise, IUser } from './auth.interfaces';
@@ -23,7 +23,7 @@ const registerUser = async ({
 
   const token = generateToken(registerUser.id);
 
-  return { ok: true, user: FnDataUser(registerUser, token) };
+  return FnDataUserSuccess(registerUser, token);
 };
 
 const loginUser = async ({
@@ -41,7 +41,7 @@ const loginUser = async ({
 
   const token = generateToken(checkIs.id as string);
 
-  return { ok: true, user: FnDataUser(checkIs, token) };
+  return FnDataUserSuccess(checkIs, token);
 };
 
 export { registerUser, loginUser };

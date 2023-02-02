@@ -1,14 +1,17 @@
-import type { IDataUser, IUser } from '../auth/auth.interfaces';
+import type { IResponsePromise, IUser } from '../auth/auth.interfaces';
 
-export function FnDataUser(
+export function FnDataUserSuccess(
   user: IUser,
   token: string,
   expiresIn?: number
-): IDataUser {
+): IResponsePromise {
   return {
-    name: user.name,
-    email: user.email,
-    token,
-    expiresIn: expiresIn ?? 2 * 60 * 60
+    ok: true,
+    user: {
+      name: user.name,
+      email: user.email,
+      token,
+      expiresIn: expiresIn ?? 2 * 60 * 60
+    }
   };
 }
