@@ -1,7 +1,9 @@
-export interface IJwtResponseTs {
-  id: number;
-  name: string;
-  email: string;
-  token: string;
-  expiresIn: number;
+export interface IJwtResponse {
+  dataUser: {
+    id: number;
+    name: string;
+    email: string;
+    token: string;
+    expiresIn: string;
+  };
 }
