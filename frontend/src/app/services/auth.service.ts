@@ -8,7 +8,7 @@ import { IUser } from '../models/user';
   providedIn: 'root',
 })
 export class AuthService {
-  auth_server: string = 'http://localhost:4001';
+  auth_server: string = 'http://localhost:4001/api';
   authSubject = new BehaviorSubject(false);
   private token: string = '';
 
@@ -20,7 +20,7 @@ export class AuthService {
       .pipe(
         tap((res: IJwtResponse) => {
           if (res) {
-            this.saveToken(res.dataUser.token, res.dataUser.expiresIn);
+            this.saveToken(res.user.token, res.user.expiresIn);
           }
         })
       );
@@ -32,7 +32,7 @@ export class AuthService {
       .pipe(
         tap((res: IJwtResponse) => {
           if (res) {
-            this.saveToken(res.dataUser.token, res.dataUser.expiresIn);
+            this.saveToken(res.user.token, res.user.expiresIn);
           }
         })
       );

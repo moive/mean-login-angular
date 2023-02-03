@@ -1,5 +1,5 @@
 export interface IJwtResponse {
-  dataUser: {
+  user: {
     id: number;
     name: string;
     email: string;
